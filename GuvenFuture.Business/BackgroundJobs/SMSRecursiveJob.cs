@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GuvenFuture.Business.BackgroundJobs.Core;
+﻿using GuvenFuture.DataAccess.Context;
 
 namespace GuvenFuture.Business.BackgroundJobs
 {
-    public class SMSRecursiveJob : IRecursiveJob
+    public class SMSRecursiveJob// : IRecursiveJob
     {
-        public void Execute()
+        public void Execute(GuvenFutureContext context)
         {
+            //AppointmentReminderQueueBusiness bussiness = new(context);
             Console.WriteLine("sms gitt");
         }
     }

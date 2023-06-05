@@ -2,6 +2,7 @@
 using GuvenFuture.Core.Models;
 using GuvenFuture.DataAccess.Context;
 using GuvenFuture.DataAccess.User;
+using Microsoft.AspNetCore.Http;
 using SystemManager.Core.Helper;
 
 namespace GuvenFuture.Business.User
@@ -10,7 +11,7 @@ namespace GuvenFuture.Business.User
     {
         #region For Custom Operations
         readonly UserOperations _modelOp;
-        public UserBusiness(GuvenFutureContext context) : base(context)
+        public UserBusiness(GuvenFutureContext context, IHttpContextAccessor accessor) : base(context, accessor)
         {
             _modelOp = new UserOperations(context);
         }
@@ -20,6 +21,7 @@ namespace GuvenFuture.Business.User
         public async Task<ResultModel<Entities.User.User>> Login(string tcNo, string password)
         {
             ResultModel<Entities.User.User> result = new();
+
             try
             {
                 if (string.IsNullOrEmpty(tcNo) || string.IsNullOrEmpty(password))
@@ -49,21 +51,25 @@ namespace GuvenFuture.Business.User
 
             return result;
         }
-        public async Task<ResultModel<bool>> Register(Entities.Computeds.DTOs.UserAuthModel userDto)
+        public async Task<ResultModel<bool>> Register(Entities.Computeds.DTOs.UserRegisterModel userDto)
         {
             ResultModel<bool> result = new();
             try
             {
-                Entities.User.User userData = new();
-                userData.TCNo = userDto.TCNo;
-
-                Entities.User.User userExists = await _modelOp.GetFirstOrDefaultAsync(x => x.TCNo == userData.TCNo);
+                Entities.User.User userExists = await _modelOp.GetFirstOrDefaultAsync(x => x.TCNo == userDto.TCNo);
                 if (userExists != null)
                     throw new Exception("Hesap daha önceden oluşturulmuş.");
+
+                Entities.User.User userData = new();
 
                 SecurePasswordHasher securePasswordHasher = new();
                 userData.PasswordHashed = securePasswordHasher.Hash(userDto.PassWord);
                 userData.PasswordHashKey = securePasswordHasher.UserSalt;
+
+                userData.TCNo = userDto.TCNo;
+                userData.ProviderId = userDto.ProviderId.Value;
+                userData.FullName = userDto.FullName;
+                userData.UserType = userDto.UserType;
 
                 int insertedId = _modelOp.Insert(userData);
 

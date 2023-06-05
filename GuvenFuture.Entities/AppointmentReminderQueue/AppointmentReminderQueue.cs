@@ -4,7 +4,6 @@ namespace GuvenFuture.Entities.AppointmentReminderQueue
 {
     public class AppointmentReminderQueue : BaseEntity, IAppointmentReminderQueue
     {
-        public int ProviderId { get; set; }
         public int AppointmentActionId { get; set; }
         public DateTime? ReminderDate { get; set; }     
         public string? ReminderType { get; set; }

@@ -10,7 +10,7 @@ namespace GuvenFuture.Entities.User
 {
     public interface IUser:IBaseEntity
     {
-        int ProviderId { get; set; }
+        //int ProviderId { get; set; }
         string? TCNo { get; set; }
         string? FullName { get; set; }
         string? UserType { get; set; }

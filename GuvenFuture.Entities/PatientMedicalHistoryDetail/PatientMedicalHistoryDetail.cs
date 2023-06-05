@@ -4,7 +4,6 @@ namespace GuvenFuture.Entities.PatientMedicalHistoryDetail
 {
     public class PatientMedicalHistoryDetail : BaseEntity, IPatientMedicalHistoryDetail
     {
-        public int ProviderId { get; set; }
         public int? ProviderLocationId { get; set; }
         public int? PatientMedicalHistoryId { get; set; }
         public bool IsPrescription { get; set; }

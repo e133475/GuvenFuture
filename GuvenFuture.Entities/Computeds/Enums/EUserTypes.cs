@@ -4,6 +4,7 @@
     {
         Hasta,
         Personel,
-        Admin
+        Admin,
+        Guest
     }
 }

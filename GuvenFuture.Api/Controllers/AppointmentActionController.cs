@@ -1,5 +1,7 @@
 ﻿using GuvenFuture.Api.Core;
 using GuvenFuture.Business.AppointmentActions;
+using GuvenFuture.Business.Core;
+using GuvenFuture.Entities.AppointmentActions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +21,8 @@ namespace GuvenFuture.Api.Controllers
         [HttpPost("CalculateTest")]
         public IActionResult CalculateTest(int x, int y)
         {
+            var user = _bussiness._currentUser;
+            string Name = User.FindFirst("Name").Value;
             return Ok(_bussiness.Calculate(x, y));
         }
         #endregion

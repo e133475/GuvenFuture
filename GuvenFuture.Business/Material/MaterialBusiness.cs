@@ -1,6 +1,7 @@
 ﻿using GuvenFuture.Business.Core;
 using GuvenFuture.DataAccess.Context;
 using GuvenFuture.DataAccess.Material;
+using Microsoft.AspNetCore.Http;
 
 namespace GuvenFuture.Business.Material
 {
@@ -8,7 +9,7 @@ namespace GuvenFuture.Business.Material
     {
         #region For Custom Operations
         readonly MaterialOperations _modelOp;
-        public MaterialBusiness(GuvenFutureContext context) : base(context)
+        public MaterialBusiness(GuvenFutureContext context, IHttpContextAccessor accessor) : base(context, accessor)
         {
             _modelOp = new MaterialOperations(context);
         }

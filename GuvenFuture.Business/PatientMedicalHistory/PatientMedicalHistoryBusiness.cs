@@ -3,6 +3,7 @@ using GuvenFuture.Business.Core;
 using GuvenFuture.Core.Models;
 using GuvenFuture.DataAccess.PatientMedicalHistory;
 using GuvenFuture.DataAccess.Context;
+using Microsoft.AspNetCore.Http;
 
 namespace GuvenFuture.Business.PatientMedicalHistory
 {
@@ -10,7 +11,7 @@ namespace GuvenFuture.Business.PatientMedicalHistory
     {
         #region For Custom Operations
         readonly PatientMedicalHistoryOperations _modelOp;
-        public PatientMedicalHistoryBusiness(GuvenFutureContext context) : base(context)
+        public PatientMedicalHistoryBusiness(GuvenFutureContext context, IHttpContextAccessor accessor) : base(context, accessor)
         {
             _modelOp = new PatientMedicalHistoryOperations(context);
         }

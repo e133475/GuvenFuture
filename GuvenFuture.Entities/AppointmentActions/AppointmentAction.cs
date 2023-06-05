@@ -4,7 +4,6 @@ namespace GuvenFuture.Entities.AppointmentActions
 {
     public class AppointmentAction : BaseEntity, IAppointmentAction
     {
-        public int ProviderId { get; set; }
         public int ProviderLocationId { get; set; }
         public DateTime? AppointmentDate { get; set; }
         public DateTime? StartTime { get; set; }

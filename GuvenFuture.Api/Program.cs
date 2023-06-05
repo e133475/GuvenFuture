@@ -1,13 +1,11 @@
-using FluentValidation;
+using GuvenFuture.Api.Core.Middlewares;
 using GuvenFuture.Api.Extensions;
-using GuvenFuture.Business.AppointmentActions;
+using GuvenFuture.Business.AppointmentReminderQueue;
 using GuvenFuture.Business.BackgroundJobs;
-using GuvenFuture.Business.BackgroundJobs.Core;
+using GuvenFuture.Business.Core;
 using GuvenFuture.DataAccess.Context;
 using Hangfire;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,19 +40,10 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseMiddleware<PermissionsMiddleware>();
+
 app.MapControllers();
 
 RecurringJob.AddOrUpdate<MailRecursiveJob>(job => job.Execute(), Cron.Minutely());
-RecurringJob.AddOrUpdate<SMSRecursiveJob>(job => job.Execute(), Cron.Minutely());
 
 app.Run();
-
-
-
-//BackgroundJob.Schedule(() => Console.WriteLine("You checkout new product into your checklist!"), TimeSpan.FromSeconds(30));
-
-//using (var server = new BackgroundJobServer())
-//{
-//    Console.WriteLine("Hangfire Server started. Press any key to exit...");
-//    Console.ReadKey();
-//}

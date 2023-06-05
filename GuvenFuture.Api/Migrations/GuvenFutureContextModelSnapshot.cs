@@ -57,7 +57,7 @@ namespace GuvenFuture.Api.Migrations
                     b.Property<int?>("PatientUserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProviderId")
+                    b.Property<int?>("ProviderId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProviderLocationId")
@@ -100,7 +100,7 @@ namespace GuvenFuture.Api.Migrations
                     b.Property<int>("DataStatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProviderId")
+                    b.Property<int?>("ProviderId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ReminderDate")
@@ -146,6 +146,9 @@ namespace GuvenFuture.Api.Migrations
                     b.Property<DateTime?>("LunchTimeStart")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("ProviderId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProviderLocationId")
                         .HasColumnType("int");
 
@@ -186,7 +189,7 @@ namespace GuvenFuture.Api.Migrations
                     b.Property<string>("MaterialUnitName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProviderId")
+                    b.Property<int?>("ProviderId")
                         .HasColumnType("int");
 
                     b.Property<float?>("QuantityBalance")
@@ -244,7 +247,7 @@ namespace GuvenFuture.Api.Migrations
                     b.Property<int?>("PatientUserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProviderId")
+                    b.Property<int?>("ProviderId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ProviderLocationId")
@@ -302,7 +305,7 @@ namespace GuvenFuture.Api.Migrations
                     b.Property<string>("PrescriptionNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProviderId")
+                    b.Property<int?>("ProviderId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ProviderLocationId")
@@ -342,6 +345,9 @@ namespace GuvenFuture.Api.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ProviderId")
+                        .HasColumnType("int");
+
                     b.Property<string>("TesisKodu")
                         .HasColumnType("nvarchar(max)");
 
@@ -376,7 +382,7 @@ namespace GuvenFuture.Api.Migrations
                     b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProviderId")
+                    b.Property<int?>("ProviderId")
                         .HasColumnType("int");
 
                     b.Property<int?>("UserId")
@@ -413,7 +419,7 @@ namespace GuvenFuture.Api.Migrations
                     b.Property<string>("PasswordHashed")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProviderId")
+                    b.Property<int?>("ProviderId")
                         .HasColumnType("int");
 
                     b.Property<string>("TCNo")
@@ -455,6 +461,9 @@ namespace GuvenFuture.Api.Migrations
 
                     b.Property<int>("DataStatus")
                         .HasColumnType("int");
+
+                    b.Property<string>("EMail")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");

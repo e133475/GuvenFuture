@@ -28,10 +28,6 @@ namespace GuvenFuture.Api.Controllers
             return Ok(_bussiness.Update(data));
         }
 
-
-
-
-
         #endregion
 
     }

@@ -3,6 +3,7 @@ using GuvenFuture.Business.Core;
 using GuvenFuture.Core.Models;
 using GuvenFuture.DataAccess.ProviderLocation;
 using GuvenFuture.DataAccess.Context;
+using Microsoft.AspNetCore.Http;
 
 namespace GuvenFuture.Business.ProviderLocation
 {
@@ -10,7 +11,7 @@ namespace GuvenFuture.Business.ProviderLocation
     {
         #region For Custom Operations
         readonly ProviderLocationOperations _modelOp;
-        public ProviderLocationBusiness(GuvenFutureContext context) : base(context)
+        public ProviderLocationBusiness(GuvenFutureContext context, IHttpContextAccessor accessor) : base(context, accessor)
         {
             _modelOp = new ProviderLocationOperations(context);
         }

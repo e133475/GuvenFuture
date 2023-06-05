@@ -9,5 +9,6 @@ namespace GuvenFuture.Core.Models
         public int CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public int DataStatus { get; set; } = 1;
+        public int? ProviderId { get; set; }
     }
 }

@@ -34,7 +34,10 @@ namespace GuvenFuture.Api.Controllers
                 {
                     //create claims details based on the user information
                     var claims = new[] {
-                        new Claim("UserId", response.ResultData.AutoId.ToString())
+                        new Claim("Name", response.ResultData.FullName.ToString()),
+                        new Claim("UserId", response.ResultData.AutoId.ToString()),
+                        new Claim("ProviderID", response.ResultData.ProviderId.ToString()),
+                        new Claim("UserType", response.ResultData.UserType.ToString())
                     };
 
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
@@ -48,6 +51,8 @@ namespace GuvenFuture.Api.Controllers
 
                     ResultModel<string> resToken = new();
                     resToken.ResultData = new JwtSecurityTokenHandler().WriteToken(token);
+                    resToken.IsSucces = true;
+                    resToken.Message = ":)";
                     return Ok(resToken);
                 }
                 else
@@ -62,7 +67,7 @@ namespace GuvenFuture.Api.Controllers
         }
 
         [HttpPost("Register")]
-        public async Task<IActionResult> Register(Entities.Computeds.DTOs.UserAuthModel _userData)
+        public async Task<IActionResult> Register(Entities.Computeds.DTOs.UserRegisterModel _userData)
         {
             ResultModel<bool> response = await _userBusiness.Register(_userData);
             return response.IsSucces ? Ok(response) : BadRequest(response);

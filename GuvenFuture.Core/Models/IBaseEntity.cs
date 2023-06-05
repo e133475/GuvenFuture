@@ -6,5 +6,6 @@
         int CreatedBy { get; set; }
         DateTime CreatedDate { get; set; }
         int DataStatus { get; set; }
+        int? ProviderId { get; set; }
     }
 }

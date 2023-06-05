@@ -4,7 +4,6 @@ namespace GuvenFuture.Entities.Material
 {
     public interface IMaterial : IBaseEntity
     {
-        int ProviderId { get; set; }
         string? StokType { get; set; }
         string? StockName { get; set; }
         string? SUTCode { get; set; }

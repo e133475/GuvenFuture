@@ -28,18 +28,18 @@ namespace GuvenFuture.Api.Extensions
             service.AddDbContext<GuvenFutureContext>(options =>
                 options.UseSqlServer(conString, b => b.MigrationsAssembly("GuvenFuture.Api")));
 
+            service.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            service.AddScoped<UserBusiness, UserBusiness>();
-            service.AddScoped<AppointmentActionBusiness, AppointmentActionBusiness>();
-            service.AddScoped<AppointmentReminderQueueBusiness, AppointmentReminderQueueBusiness>();
-            service.AddScoped<AppointmentSettingBusiness, AppointmentSettingBusiness>();
-            service.AddScoped<MaterialBusiness, MaterialBusiness>();
-            service.AddScoped<PatientMedicalHistoryBusiness, PatientMedicalHistoryBusiness>();
-            service.AddScoped<PatientMedicalHistoryDetailBusiness, PatientMedicalHistoryDetailBusiness>();
-            service.AddScoped<ProviderBusiness, ProviderBusiness>();
-            service.AddScoped<ProviderLocationBusiness, ProviderLocationBusiness>();
-            service.AddScoped<UserDetailBusiness, UserDetailBusiness>();
-
+            service.AddScoped<UserBusiness>();
+            service.AddScoped<AppointmentActionBusiness>();
+            service.AddScoped<AppointmentReminderQueueBusiness>();
+            service.AddScoped<AppointmentSettingBusiness>();
+            service.AddScoped<MaterialBusiness>();
+            service.AddScoped<PatientMedicalHistoryBusiness>();
+            service.AddScoped<PatientMedicalHistoryDetailBusiness>();
+            service.AddScoped<ProviderBusiness>();
+            service.AddScoped<ProviderLocationBusiness>();
+            service.AddScoped<UserDetailBusiness>();
 
             service.AddValidatorsFromAssemblyContaining<AppointmentActionValidation>();
             service.AddValidatorsFromAssemblyContaining<AppointmentReminderQueueValidation>();
