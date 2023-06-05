@@ -18,7 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{EBBA3B85-2A67-46DD-AA3B-0EE890B5F74B}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\DBSchema.pdf = ..\..\DBSchema.pdf
-		C:\Users\adilk\Desktop\GuvenFutureDB-v2.sql = C:\Users\adilk\Desktop\GuvenFutureDB-v2.sql
+		C:\Users\adilk\Desktop\GuvenFutureDB-v3.sql = C:\Users\adilk\Desktop\GuvenFutureDB-v3.sql
 	EndProjectSection
 EndProject
 Global
