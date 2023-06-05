@@ -10,6 +10,7 @@ namespace GuvenFuture.Entities.PatientMedicalHistory
         int? DoctorUserId { get; set; }
         DateTime? ActionDate { get; set; }
         string? PaitentComplaint { get; set; }
+        string? DoctorDiagnosis { get; set; }
         int? Severity { get; set; }
         int? ProvisionNumber { get; set; }
     }

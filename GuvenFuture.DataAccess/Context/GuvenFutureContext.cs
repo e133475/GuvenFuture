@@ -8,10 +8,10 @@ namespace GuvenFuture.DataAccess.Context
     {
         public GuvenFutureContext(DbContextOptions<GuvenFutureContext> dbContextOptions) : base(dbContextOptions)
         {
-            Database.Migrate();
+            //Database.Migrate();
         }
 
-        void SetQueryFilter<TEntity>(ModelBuilder modelBuilder)  where TEntity : BaseEntity
+        void SetQueryFilter<TEntity>(ModelBuilder modelBuilder) where TEntity : BaseEntity
         {
             modelBuilder.Entity<TEntity>().HasQueryFilter(e => e.DataStatus == 1);
         }
@@ -30,6 +30,18 @@ namespace GuvenFuture.DataAccess.Context
                         .Invoke(this, new object[] { modelBuilder });
                 }
             }
+
+
+            // view entegration
+            modelBuilder.Entity<Entities.ViewModels.MedicalHistoryView>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+                entity.ToTable(nameof(Entities.ViewModels.MedicalHistoryView));
+            });
+            //modelBuilder
+            //   .Entity<Entities.ViewModels.MedicalHistoryView>()
+            //   .ToView(nameof(Entities.ViewModels.MedicalHistoryView))
+            //   .HasKey(t => t.Id);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -37,6 +49,7 @@ namespace GuvenFuture.DataAccess.Context
 
         }
 
+        public virtual DbSet<Entities.ViewModels.MedicalHistoryView> MedicalHistoryView { get; set; }
         public virtual DbSet<Entities.Provider.Provider> Providers { get; set; }
         public virtual DbSet<Entities.User.User> Users { get; set; }
         public virtual DbSet<Entities.UserDetail.UserDetail> UserDetails { get; set; }

@@ -7,6 +7,7 @@ namespace GuvenFuture.Entities.AppointmentSetting
         public int ProviderLocationId { get; set; }
         public DateTime? AppointmentDate { get; set; }
         public DateTime? StartTime { get; set; }
+        public DateTime? EndTime { get; set; }
         public int? ConsultationTimePeriod { get; set; }
         public int? BreakTimePeriod { get; set; }
         public DateTime? LunchTimeStart { get; set; }

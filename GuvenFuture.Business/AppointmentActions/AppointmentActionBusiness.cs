@@ -18,9 +18,9 @@ namespace GuvenFuture.Business.AppointmentActions
 
         #region Custom Operations
 
-        public override IResultModel<bool> DeleteById(int Id)
+        public async Task<ResultModel<bool>> CreateAppointmentAsync(int providerId, int locationId, int patientId, DateTime selectedDate, int reminderTimePeriod, int reminderCount, string reminderType, string appNote)
         {
-            throw new Exception();
+            return await _modelOp.CreateAppointmentAsync(providerId, locationId, patientId, _currentUser.UserId, selectedDate, reminderTimePeriod, reminderCount, reminderType, appNote);
         }
 
         public int Calculate(int x, int y)

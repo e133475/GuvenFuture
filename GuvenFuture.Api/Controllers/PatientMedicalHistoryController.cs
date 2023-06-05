@@ -1,5 +1,6 @@
 ﻿using GuvenFuture.Api.Core;
 using GuvenFuture.Business.PatientMedicalHistory;
+using GuvenFuture.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,11 @@ namespace GuvenFuture.Api.Controllers
         }
 
         #region Custom Methods
-
+        [HttpGet("GetMedicalHistoryView")]
+        public IActionResult GetMedicalHistoryView()
+        {
+            return Ok(_bussiness.GetMedicalHistoryView());
+        }
         #endregion
 
     }

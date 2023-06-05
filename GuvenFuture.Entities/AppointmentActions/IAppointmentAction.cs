@@ -10,7 +10,7 @@ namespace GuvenFuture.Entities.AppointmentActions
         DateTime? EndTime { get; set; }
         int? PatientUserId { get; set; }
         int? DoctorUserId { get; set; }
-        string? ReminderTimePeriod { get; set; }
+        int? ReminderTimePeriod { get; set; }
         int? ReminderCount { get; set; }
         string? ReminderType { get; set; }
         int?  AppointmentStatus { get; set; }

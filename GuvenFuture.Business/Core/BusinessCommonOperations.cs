@@ -145,6 +145,7 @@ namespace GuvenFuture.Business.Core
             try
             {
                 model.CreatedBy = _currentUser.UserId;
+                model.CreatedDate= DateTime.Now;
                 model.ProviderId = _currentUser.ProviderID;
                 model.DataStatus = 1;
 
