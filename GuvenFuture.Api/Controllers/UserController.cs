@@ -22,7 +22,7 @@ namespace GuvenFuture.Api.Controllers
 
         [HttpPost("Update2")]
         [AllowAnonymous]
-        public IActionResult Update2(Entities.User.User data)
+        private IActionResult Update2(Entities.User.User data)
         {
             var jobId = BackgroundJob.Schedule(() => Console.WriteLine("You checkout new product into your checklist!"), TimeSpan.FromSeconds(30));
             return Ok(_bussiness.Update(data));
