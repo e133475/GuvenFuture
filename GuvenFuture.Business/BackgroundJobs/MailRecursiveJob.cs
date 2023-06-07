@@ -12,7 +12,7 @@ namespace GuvenFuture.Business.BackgroundJobs
         {
             _serviceProvider = serviceProvider;
         }
-        public async void Execute()
+        public async Task Execute()
         {
             using (IServiceScope scope = _serviceProvider.CreateScope())
             {

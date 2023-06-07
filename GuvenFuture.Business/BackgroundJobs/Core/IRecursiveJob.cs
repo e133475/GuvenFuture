@@ -8,6 +8,6 @@ namespace GuvenFuture.Business.BackgroundJobs.Core
 {
     public interface IRecursiveJob
     {
-        void Execute();
+        Task Execute();
     }
 }
